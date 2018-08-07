@@ -1,0 +1,69 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-tooltip/paper-tooltip.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="generator-tabs">
+    <template>
+
+        <style>
+            :root                { --paper-tabs: { font-family: Arial; }; --paper-tabs-selection-bar-color: #2980b9; --paper-input: { color: white; }; }
+            paper-tabs           { margin-bottom: 50px; }
+            .generator-content   { width: 100%; display: flex; justify-content: center; justify-items: center; }
+            .generator-params    { width: 400px; background-color: #ecf0f1; border: solid 4px #bdc3c7; border-radius: 5px; padding: 0 10px 10px 10px; -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75); -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75); box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75); }
+            .generator-title     { display: flex; width: 100%; justify-content: center; font-size: 1.3em; color: black; background-color: #bdc3c7; border-bottom-left-radius: 50% 20%; border-bottom-right-radius: 50% 20%; -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75); box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75); }
+            .btn                 { padding: 5px; background-color: #3498db; border-color: #3498db; border-radius: 3px; border-bottom: solid 4px #2980b9; color: #ffffff; }
+        </style>
+
+        <paper-tabs selected="{{selected}}" autoselect>
+            <paper-tab><img src="img/galaxy.png" style="margin-right: 5px;">Galaxy</paper-tab>
+            <paper-tab><img src="img/stellar-system.png" style="margin-right: 5px;">Stellar System</paper-tab>
+            <paper-tab><img src="img/planetary-system.png" style="margin-right: 5px;">Planetary System</paper-tab>
+        </paper-tabs>
+        <iron-pages selected="{{selected}}">
+            <div class="generator-content">
+                <div class="generator-params">
+                    <div class="generator-title">Galaxy Generator</div>
+                    <paper-input label="Seed"></paper-input>
+                    <paper-input label="Number of galaxies"></paper-input>
+                    <paper-input label="Param 3"></paper-input>
+                    <button class="btn" style="margin-top: 15px;">Generate</button>
+                </div>
+            </div>
+            <div class="generator-content">
+                <div class="generator-params">
+                    <div class="generator-title">Stellar System Generator</div>
+                    <paper-input label="Seed"></paper-input>
+                    <paper-input label="Number of stellar systems"></paper-input>
+                    <paper-input label="Param 3"></paper-input>
+                    <button class="btn" style="margin-top: 15px;">Generate</button>
+                </div>
+            </div>
+            <div class="generator-content">
+                <div class="generator-params">
+                    <div class="generator-title">Planetary System Generator</div>
+                    <paper-input label="Seed"></paper-input>
+                    <paper-input label="Number of planets"></paper-input>
+                    <paper-input label="Param 3"></paper-input>
+                    <button class="btn" style="margin-top: 15px;">Generate</button>
+                </div>
+            </div>
+        </iron-pages>
+    </template>
+    
+    <script>
+        class GeneratorTabs extends Polymer.Element
+        {
+            static get is() { return "generator-tabs" }
+
+            connectedCallback()
+            {
+                super.connectedCallback();
+            }
+        }
+
+        window.customElements.define(GeneratorTabs.is, GeneratorTabs);
+    </script>
+</dom-module>
